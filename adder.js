@@ -18,7 +18,7 @@ router.post('/newuser',function(req,res,next)
     
       if(doc.length==0)
       {
-        var id=Math.floor(Math.random() * 1000);
+        var id=Math.floor(Math.random() * 10000000);
         coll.insert({"uname":name,"id1":id.toString()})
         res.json({"uname":name,"id1":id.toString()});
         client.close();
@@ -49,11 +49,13 @@ router.post('/training',function(req,res,err){
     if(doc.length==0)
     {
       res.json({"Error":"User doesnt exist"})
+      client.close();
       
     }
                
       else{
-        coll.update({"id1":uid},{)
+        coll.update({"id1":uid},{"id1":uid,"username":name,"description":udesc,"usertime":utime.toString(),"userdate":udate.toString()})
+        client.close();
       }
     
     })
