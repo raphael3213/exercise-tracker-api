@@ -3,9 +3,11 @@ var router=express.Router();
 
 var app=express();
 
-router.post('/newuser',function(req,res,next)
+router.post('/training',function(req,res,next)
             {
   
   console.log("yo");
 }
             );
+
+module.exports = router;
