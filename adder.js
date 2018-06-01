@@ -7,7 +7,8 @@ var app=express();
 
 router.post('/newuser',function(req,res,next)
             {
-  var name=req.body.name;
+  var name=req.body.username;
+  console.log(name);
   
   mongo.connect(url,function(err,client){
     
@@ -17,7 +18,7 @@ router.post('/newuser',function(req,res,next)
     
       if(doc.length==0)
       {
-        var id=Math.random();
+        var id=Math.floor(Math.random() * 1000);
         coll.insert({"uname":name,"id1":id.toString()})
         res.json({"uname":name,"id1":id.toString()});
         client.close();
@@ -32,5 +33,13 @@ router.post('/newuser',function(req,res,next)
   
 }
             );
+
+router.post('/training',function(req,res,err){
+  
+  var uid=req.body.userid;
+  var udesc=req.body.userdesc;
+  var utime=req.body.utime;
+  var u
+});
 
 module.exports = router;
