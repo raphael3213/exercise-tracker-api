@@ -38,8 +38,30 @@ router.post('/training',function(req,res,err){
   
   var uid=req.body.userid;
   var udesc=req.body.userdesc;
-  var utime=req.body.utime;
-  var u
+  var utime=req.body.usertime;
+  var udate=req.body.userdate;
+  
+  mongo.connect(url,function(err,client){
+  var db=client.db('training');
+    var coll=db.collection('schedule');
+    
+    coll.find({"id1":uid}).toArray(function(err,doc){
+    if(doc.length==0)
+    {
+      res.json({"Error":"User doesnt exist"})
+      
+    }
+               
+      else{
+        coll.update({"id1":uid},{)
+      }
+    
+    })
+    
+                                   
+    
+  });
+  
 });
 
 module.exports = router;
