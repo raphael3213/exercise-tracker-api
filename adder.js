@@ -3,10 +3,10 @@ var router=express.Router();
 
 var app=express();
 
-router.post('/training',function(req,res,next)
+router.post('/newuser',function(req,res,next)
             {
+  console.log(req.body)
   
-  console.log("yo");
 }
             );
 
