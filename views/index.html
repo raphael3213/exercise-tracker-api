@@ -32,10 +32,22 @@
       
       <p>Tell me your hopes and dreams:</p>
       
-      <form>
-        <input name="dream" type="text" maxlength="100" placeholder="Dreams!" aria-labelledby="submit-dream">
-        <button type="submit" id="submit-dream">Submit Dream</button>
+      <form action="newuser" method="post">
+        <p>
+          CREATE A NEW USER
+        </p>
+        <label for="username">Username:</label>
+        <input type="text" id="uname" name="username">
+        <input type="submit">
       </form>
+      <form action="training" method="post">
+         <input type="text" id="uid" name="userid" placeholder="User id">
+         <input type="text" id="udesc" name="userdesc" placeholder="description">
+         <input type="text" id="utime" name="usertime" placeholder="time in mins">
+         <input type="text" id="udate" name="userdate">
+      </form>
+      
+      
       
       <section class="dreams">
         <ul id="dreams"></ul>
