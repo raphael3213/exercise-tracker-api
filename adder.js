@@ -13,7 +13,21 @@ router.post('/newuser',function(req,res,next)
     
     var db=client.db('trainer');
     var coll=db.collection('schedule');
-    coll.find(
+    coll.find({uname:name}).toArray(function(err,doc){
+    
+      if(doc.length==0)
+      {
+        var id=Math.random();
+        coll.insert({"uname":name,"id1":id.toString()})
+        res.json({"uname":name,"id1":id.toString()});
+        client.close();
+      }
+      else
+      {
+      res.json({"Error":"Name already exists"})
+        client.close();
+      }
+    })
   });
   
 }
