@@ -7,7 +7,7 @@ var app = express();
 var bp=require('body-parser');
 
 app.use(bp.urlencoded({extended:false}))
-var url="mongodb://"+process.env.MONGO_ID+":"+process.env.MONGO_PASS+"@ds243768.mlab.com:43768/trainer";
+
 var adder=require('./adder');
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
