@@ -42,7 +42,7 @@ router.post('/training',function(req,res,err){
   var udate=req.body.userdate;
   
   mongo.connect(url,function(err,client){
-  var db=client.db('training');
+  var db=client.db('trainer');
     var coll=db.collection('schedule');
     
     coll.find({"id1":uid}).toArray(function(err,doc){
@@ -54,7 +54,9 @@ router.post('/training',function(req,res,err){
     }
                
       else{
-        coll.update({"id1":uid},{"id1":uid,"username":name,"description":udesc,"usertime":utime.toString(),"userdate":udate.toString()})
+        var name=doc[0].uname;
+        coll.update({"id1":uid},{"id1":uid,"uname":name,"description":udesc,"usertime":utime.toString(),"userdate":udate.toString()})
+        res.json({"id1":uid,"uname":name,"description":udesc,"usertime":utime.toString(),"userdate":udate.toString()});
         client.close();
       }
     
